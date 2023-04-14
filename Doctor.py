@@ -44,9 +44,9 @@ class Doctor:
         self.room_number = new_room_number
 
     def __str__(self):
-        return f"{self.doctor_id} | {self.doctor_name} | {self.specialization} | {self.working_time} | {self.qualification} | {self.room_number}"
+        return f"{self.doctor_id}_{self.doctor_name}_{self.specialization}_{self.working_time}_{self.qualification}_{self.room_number}"
 
 
-Doctor1 = Doctor(12, "Bop", "CANCER", "11 am - 12 pm", "MD", 202)
-
-print(Doctor1)
+Doctor1 = Doctor(12, "Bop", "CANCER", "5-12pm", "MD", 202)
+if __name__ == "__main__":
+    print(Doctor1)
