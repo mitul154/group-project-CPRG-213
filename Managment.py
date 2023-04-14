@@ -1,5 +1,7 @@
-import DoctorManager.py
-import patient_manager.py
+import Doctor
+import DoctorManager
+
+import patient_manager
 
 
 class Display:
@@ -41,3 +43,5 @@ class Display:
                             print("Doctor ID Doesn't exist")
                         else:
                             edit_doctor_info(self.new_doc_inputs())
+
+

@@ -28,8 +28,8 @@ class Doctor:
     def set_doctor_id(self, new_id):
         self.doctor_id = new_id
 
-    def set_new_name(self, new_name):
-        self.name = new_name
+    def set_new_name(self, new_doctor_name):
+        self.doctor_name = new_doctor_name
 
     def set_new_specialization(self, new_specialization):
         self.specialization = new_specialization
