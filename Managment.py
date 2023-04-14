@@ -13,6 +13,7 @@ class Display:
         new_doctor = Doctor(new_doctor_id, new_doctor_name, new_doctor_specialty, new_doctor_hours,
                             new_doctor_qualifications, new_doctor_room_number)
         return new_doctor
+
     def display_menu(self):
         first_display_input = input("Welcome to Alberta Hospital (AH) Managment system \n"
                                     "Select from the following options, or select 3 to stop: \n1 - 	Doctors\n"
