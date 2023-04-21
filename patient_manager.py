@@ -8,7 +8,7 @@ class PatientManager:
 
     @staticmethod
     def format_patient_info_for_file(patient_object):
-        return patient_object
+        return str(patient_object)
 
     @staticmethod
     def enter_patient_info():
@@ -88,14 +88,15 @@ class PatientManager:
                 f.write(patient_format)
 
     def add_patient_to_file(self):
-        pass
-
-
+        new_patient = self.enter_patient_info()
+        self.write_list_of_patients_to_file([f"\n{new_patient}"])
+        print("New patient has been added")
 
 
 p1 = patient.Patient()
 p1.set_name("djiowoaj")
 a = PatientManager()
 a.search_patient_by_id()
+a.add_patient_to_file()
 a.display_patient_info(p1)
 # print(a.format_patient_info_for_file(p1))
