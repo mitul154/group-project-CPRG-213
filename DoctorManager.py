@@ -13,6 +13,29 @@ class DoctorManager:
          new_doctor_object = Doctor()
          new_doctor_object.set()
 
+    
+    def read_doctors_file(self):
+        pass
+    
+    
+    def search_doctor_by_id(self):
+        pass
+    
+    
+    
+    def search_doctor_by_name(self):
+        pass
+    
+    
+    
+    def display_doctor_info(self):
+        pass
+    
+    
+    
+    def edit_doctor_info(self):
+        pass
+
 
 DM1 = DoctorManager()
 print(DM1.format_dr_info(Doctor1))
