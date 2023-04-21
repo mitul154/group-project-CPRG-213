@@ -41,5 +41,8 @@ class Patient:
         self.age = new_age
         return self.age
 
+    def set_age(self, age):
+        self.age = age
+
     def __str__(self):
         return f"{self.pid}_{self.name}_{self.disease}_{self.gender}_{self.age}"

@@ -3,3 +3,5 @@ id_Name_Disease_Gender_Age
 13_Sumit_Cold_Male_23
 14_Alok_Maleriya_Male_45
 15_Ravi_Diabetes_Male_25
+34_Omar_Scurvy_Male_26
+Bop_Bop_AIDS_All_69
