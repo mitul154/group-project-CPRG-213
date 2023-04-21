@@ -93,10 +93,10 @@ class PatientManager:
         print("New patient has been added")
 
 
-p1 = patient.Patient()
-p1.set_name("djiowoaj")
-a = PatientManager()
-a.search_patient_by_id()
-a.add_patient_to_file()
-a.display_patient_info(p1)
+# p1 = patient.Patient()
+# p1.set_name("djiowoaj")
+# a = PatientManager()
+# a.search_patient_by_id()
+# a.add_patient_to_file()
+# a.display_patient_info(p1)
 # print(a.format_patient_info_for_file(p1))
