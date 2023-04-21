@@ -12,7 +12,7 @@ class Display:
         self.doctor = DoctorManager.DoctorManager()
 
     def display_menu(self):
-        first_display_input = input("Welcome to Alberta Hospital (AH) Managment system \n"
+        first_display_input = input("Welcome to Alberta Hospital (AH) Management system \n"
                                     "Select from the following options, or select 3 to stop: \n1 - 	Doctors\n"
                                     "2 - 	Patients\n3 -	Exit Program \n>>>")
         while first_display_input != 3:
@@ -43,7 +43,9 @@ class Display:
                     patient_menu = input("Patients Menu:\n1 - Display patients list\n2 - Search for patient by ID"
                                          "\n3 - Add patient\n4 - Edit patient info\n5 - Back to the Main Menu\n>>>")
                     if patient_menu == "1":
-                        self.patient.display_patients_list()
+                        print("ID\t\t\t\t\tName\t\t\t\tDisease\t\t\t\tGender\t\t\t\tAge")
+                        for i in self.patient.patient_list:
+                            print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_'))))
                     elif patient_menu == "2":
                         self.patient.search_patient_by_id()
                     elif patient_menu == "3":
