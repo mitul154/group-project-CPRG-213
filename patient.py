@@ -40,4 +40,3 @@ class Patient:
         return f"{self.pid}_{self.name}_{self.disease}_{self.gender}_{self.age}"
 
 
-
