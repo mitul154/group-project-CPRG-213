@@ -71,18 +71,20 @@ class DoctorManager:
     
     def edit_doctor_info(self):
         flag = False
-        pid = input("Enter the doctor ID which you want to edit: ")
+        doctor_id = input("Enter the doctor ID which you want to edit: ")
         for doctor_object in self.doctors:
-            if doctor_object.get_pid() == pid:
+            if doctor_object.get_doctor_id() == doctor_id:
                 flag = True
-                name = input("Enter the doctor name: ")
-                disease = input("Enter the doctor's disease: ")
-                gender = input("Enter the doctor's gender: ")
-                age = input("Enter the doctor's age: ")
-                doctor_object.set_name(name)
-                doctor_object.set_disease(disease)
-                doctor_object.set_gender(gender)
-                doctor_object.set_age(age)
+                name = input("Enter the doctor's name: ")
+                specialization = input("Enter the doctor's disease: ")
+                working_time = input("Enter the doctor's gender: ")
+                qualification = input("Enter the doctor's age: ")
+                room_number = input("Enter the doctor's room number: ")
+                doctor_object.set_new_name(name)
+                doctor_object.set_new_specialization(specialization)
+                doctor_object.set_new_working_time(working_time)
+                doctor_object.set_new_qualification(qualification)
+                doctor_object.set_new_room_number(room_number)
         if flag:
             with open("data/doctors.txt", "w") as f:
                 f.writelines(map(lambda x: x.__str__(), self.doctors))
