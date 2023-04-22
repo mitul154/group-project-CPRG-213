@@ -8,7 +8,8 @@ class PatientManager:
 
     @staticmethod
     def format_patient_info_for_file(patient_object):
-        return str(patient_object)
+        split = str(patient_object).split("_")
+        return f"{split[0]:5s}{split[1]:20s}{split[2]:20s}{split[3]:20s}{split[4]}"
 
     @staticmethod
     def enter_patient_info():
@@ -25,13 +26,12 @@ class PatientManager:
         new_patient.set_age(age)
         return new_patient
 
-    # @staticmethod
     def read_patients_file(self, patient_list):
         self.patient_list.clear()
         with open("data/patients.txt", "r") as f:
-            iter_f = iter(f)
-            next(iter_f)
-            for patient_data in iter_f:
+            # iter_f = iter(f)
+            # next(iter_f)
+            for patient_data in f:
                 new_patient_object = patient.Patient()
                 new_patient_object.set_pid(patient_data.rstrip().split("_")[0])
                 new_patient_object.set_name(patient_data.rstrip().split("_")[1])
@@ -50,7 +50,9 @@ class PatientManager:
                 patient_obj = patient_object
                 break
         if flag:
-            print(patient_obj)
+            print(self.format_patient_info_for_file(patient_obj))
+        elif id == "id":
+            print("Can’t find the patient….")
         else:
             print("Can’t find the patient….")
 
@@ -74,7 +76,7 @@ class PatientManager:
                 patient_object.set_age(age)
         if flag:
             with open("data/patients.txt", "w") as f:
-                f.writelines(map(lambda x:x.__str__(), self.patient_list))
+                f.writelines(map(lambda x:x.__str__()+"\n", self.patient_list))
         else:
             print("Cannot find the patient …..")
 
@@ -95,10 +97,3 @@ class PatientManager:
         print("New patient has been added")
 
 
-# p1 = patient.Patient()
-# p1.set_name("djiowoaj")
-# a = PatientManager()
-# a.search_patient_by_id()
-# a.add_patient_to_file()
-# a.display_patient_info(p1)
-# print(a.format_patient_info_for_file(p1))

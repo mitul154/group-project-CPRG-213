@@ -9,7 +9,8 @@ class DoctorManager:
 
     @staticmethod
     def format_dr_info(doctor_object):
-        return str(doctor_object)
+        split = str(doctor_object).split("_")
+        return f"{split[0]:5s}{split[1]:20s}{split[2]:20s}{split[3]:20s}{split[4]:20s}{split[5]}"
 
     @staticmethod
     def enter_doctor_info():
@@ -25,9 +26,7 @@ class DoctorManager:
     @staticmethod
     def read_doctors_file(doctor_list):
         with open("data/doctors.txt", "r") as f:
-            iter_f = iter(f)
-            next(iter_f)
-            for doctor_data in iter_f:
+            for doctor_data in f:
                 new_doctor_object = Doctor()
                 new_doctor_object.set_doctor_id(doctor_data.rstrip().split("_")[0])
                 new_doctor_object.set_new_name(doctor_data.rstrip().split("_")[1])
@@ -76,9 +75,9 @@ class DoctorManager:
             if doctor_object.get_doctor_id() == doctor_id:
                 flag = True
                 name = input("Enter the doctor's name: ")
-                specialization = input("Enter the doctor's disease: ")
-                working_time = input("Enter the doctor's gender: ")
-                qualification = input("Enter the doctor's age: ")
+                specialization = input("Enter the doctor's specialization: ")
+                working_time = input("Enter the doctor's working time: ")
+                qualification = input("Enter the doctor's qualification: ")
                 room_number = input("Enter the doctor's room number: ")
                 doctor_object.set_new_name(name)
                 doctor_object.set_new_specialization(specialization)
@@ -87,7 +86,7 @@ class DoctorManager:
                 doctor_object.set_new_room_number(room_number)
         if flag:
             with open("data/doctors.txt", "w") as f:
-                f.writelines(map(lambda x: x.__str__(), self.doctors))
+                f.writelines(map(lambda x: x.__str__()+"\n", self.doctors))
         else:
             print("Cannot find the doctor …..")
 
