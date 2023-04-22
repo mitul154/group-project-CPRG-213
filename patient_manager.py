@@ -25,8 +25,9 @@ class PatientManager:
         new_patient.set_age(age)
         return new_patient
 
-    @staticmethod
-    def read_patients_file(patient_list):
+    # @staticmethod
+    def read_patients_file(self, patient_list):
+        self.patient_list.clear()
         with open("data/patients.txt", "r") as f:
             iter_f = iter(f)
             next(iter_f)
@@ -78,8 +79,9 @@ class PatientManager:
             print("Cannot find the patient …..")
 
     def display_patients_list(self):
-        for _patient in self.patient_list:
-            print(_patient)
+        self.read_patients_file(self.patient_list)
+        for i in self.patient_list:
+            print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
 
     def write_list_of_patients_to_file(self, list_of_patients):
         with open("data/patients.txt", "a") as f:

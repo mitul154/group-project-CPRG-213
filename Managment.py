@@ -24,7 +24,7 @@ class Display:
                     # calls the functions that user is trying to use
                     match first_doctor_input:
                         case "1":
-                            self.doctor.display_doctor_info()
+                            self.doctor.display_doctors_list()
                         case "2":
                             self.doctor.search_doctor_by_id()
                         case "3":
@@ -43,9 +43,10 @@ class Display:
                     patient_menu = input("Patients Menu:\n1 - Display patients list\n2 - Search for patient by ID"
                                          "\n3 - Add patient\n4 - Edit patient info\n5 - Back to the Main Menu\n>>>")
                     if patient_menu == "1":
-                        print("ID\t\t\t\t\tName\t\t\t\tDisease\t\t\t\tGender\t\t\t\tAge")
-                        for i in self.patient.patient_list:
-                            print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_'))))
+                        print("ID\t\t\t\t\tName\t\t\t\tDisease\t\t\t\tGender\t\t\t\tAge\n")
+                        self.patient.display_patients_list()
+                        # for i in self.patient.patient_list:
+                        #     print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_'))))
                     elif patient_menu == "2":
                         self.patient.search_patient_by_id()
                     elif patient_menu == "3":

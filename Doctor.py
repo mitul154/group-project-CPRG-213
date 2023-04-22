@@ -1,5 +1,5 @@
 class Doctor:
-    def __init__(self, doctor_id, doctor_name, specialization, working_time, qualification, room_number):
+    def __init__(self, doctor_id = "", doctor_name = "", specialization = "", working_time = "", qualification = "", room_number = 0):
         self.doctor_id = doctor_id
         self.doctor_name = doctor_name
         self.specialization = specialization
