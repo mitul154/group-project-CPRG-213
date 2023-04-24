@@ -24,6 +24,7 @@ class PatientManager:
         new_patient.set_disease(disease)
         new_patient.set_gender(gender)
         new_patient.set_age(age)
+        print(f"\nPatient whose ID is {pid} has been added.")
         return new_patient
 
     def read_patients_file(self, patient_list):
@@ -50,6 +51,7 @@ class PatientManager:
                 patient_obj = patient_object
                 break
         if flag:
+            print(f"ID{'':3s}Name{'':16s}Disease{'':13s}Gender{'':14s}Age\n")
             print(self.format_patient_info_for_file(patient_obj))
         elif id == "id":
             print("Can’t find the patient….")
@@ -77,6 +79,7 @@ class PatientManager:
         if flag:
             with open("data/patients.txt", "w") as f:
                 f.writelines(map(lambda x:x.__str__()+"\n", self.patient_list))
+                print(f"\nPatient whose ID is {pid} has been edited.")
         else:
             print("Cannot find the patient …..")
 
@@ -95,5 +98,4 @@ class PatientManager:
     def add_patient_to_file(self):
         new_patient = self.enter_patient_info()
         self.write_list_of_patients_to_file([f"\n{new_patient}"])
-        print("New patient has been added")
 
