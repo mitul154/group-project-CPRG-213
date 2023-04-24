@@ -83,17 +83,17 @@ class PatientManager:
     def display_patients_list(self):
         self.read_patients_file(self.patient_list)
         for i in self.patient_list:
-            print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
+            print(self.format_patient_info_for_file(str(i))+"\n")
+            # print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
 
     def write_list_of_patients_to_file(self, list_of_patients):
         with open("data/patients.txt", "a") as f:
             for _patient in list_of_patients:
-                patient_format = self.format_patient_info_for_file(_patient)
+                patient_format = str(_patient)
                 f.write(patient_format)
 
     def add_patient_to_file(self):
         new_patient = self.enter_patient_info()
         self.write_list_of_patients_to_file([f"\n{new_patient}"])
         print("New patient has been added")
-
 

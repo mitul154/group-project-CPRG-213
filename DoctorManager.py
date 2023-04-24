@@ -99,7 +99,7 @@ class DoctorManager:
     def write_list_of_doctors_to_file(self, list_of_doctors):
         with open("data/doctors.txt", "a") as f:
             for _doctor in list_of_doctors:
-                doctor_format = self.format_dr_info(_doctor)
+                doctor_format = str(_doctor)
                 f.write(doctor_format)
 
     def add_dr_to_file(self):

@@ -30,7 +30,7 @@ class Display:
                         case "3":
                             self.doctor.search_doctor_by_name()
                         case "4":
-                            self.doctor.enter_doctor_info()
+                            self.doctor.add_dr_to_file()
                         case "5":
                             self.doctor.edit_doctor_info()
                         case "6":
