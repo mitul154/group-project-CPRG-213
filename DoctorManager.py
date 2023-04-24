@@ -94,7 +94,8 @@ class DoctorManager:
         self.doctors.clear()
         self.read_doctors_file(self.doctors)
         for i in self.doctors:
-            print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
+            print(self.format_dr_info(str(i))+"\n")
+            # print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
 
     def write_list_of_doctors_to_file(self, list_of_doctors):
         with open("data/doctors.txt", "a") as f:
