@@ -8,7 +8,8 @@ class PatientManager:
 
     @staticmethod
     def format_patient_info_for_file(patient_object):
-        return str(patient_object)
+        split = str(patient_object).split("_")
+        return f"{split[0]:5s}{split[1]:20s}{split[2]:20s}{split[3]:20s}{split[4]}"
 
     @staticmethod
     def enter_patient_info():
@@ -23,14 +24,15 @@ class PatientManager:
         new_patient.set_disease(disease)
         new_patient.set_gender(gender)
         new_patient.set_age(age)
+        print(f"\nPatient whose ID is {pid} has been added.")
         return new_patient
 
-    @staticmethod
-    def read_patients_file(patient_list):
+    def read_patients_file(self, patient_list):
+        self.patient_list.clear()
         with open("data/patients.txt", "r") as f:
-            iter_f = iter(f)
-            next(iter_f)
-            for patient_data in iter_f:
+            # iter_f = iter(f)
+            # next(iter_f)
+            for patient_data in f:
                 new_patient_object = patient.Patient()
                 new_patient_object.set_pid(patient_data.rstrip().split("_")[0])
                 new_patient_object.set_name(patient_data.rstrip().split("_")[1])
@@ -49,7 +51,10 @@ class PatientManager:
                 patient_obj = patient_object
                 break
         if flag:
-            print(patient_obj)
+            print(f"ID{'':3s}Name{'':16s}Disease{'':13s}Gender{'':14s}Age\n")
+            print(self.format_patient_info_for_file(patient_obj))
+        elif id == "id":
+            print("Can’t find the patient….")
         else:
             print("Can’t find the patient….")
 
@@ -73,30 +78,24 @@ class PatientManager:
                 patient_object.set_age(age)
         if flag:
             with open("data/patients.txt", "w") as f:
-                f.writelines(map(lambda x:x.__str__(), self.patient_list))
+                f.writelines(map(lambda x:x.__str__()+"\n", self.patient_list))
+                print(f"\nPatient whose ID is {pid} has been edited.")
         else:
             print("Cannot find the patient …..")
 
     def display_patients_list(self):
-        for _patient in self.patient_list:
-            print(_patient)
+        self.read_patients_file(self.patient_list)
+        for i in self.patient_list:
+            print(self.format_patient_info_for_file(str(i))+"\n")
+            # print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
 
     def write_list_of_patients_to_file(self, list_of_patients):
         with open("data/patients.txt", "a") as f:
             for _patient in list_of_patients:
-                patient_format = self.format_patient_info_for_file(_patient)
+                patient_format = str(_patient)
                 f.write(patient_format)
 
     def add_patient_to_file(self):
         new_patient = self.enter_patient_info()
         self.write_list_of_patients_to_file([f"\n{new_patient}"])
-        print("New patient has been added")
 
-
-p1 = patient.Patient()
-p1.set_name("djiowoaj")
-a = PatientManager()
-a.search_patient_by_id()
-a.add_patient_to_file()
-a.display_patient_info(p1)
-# print(a.format_patient_info_for_file(p1))
