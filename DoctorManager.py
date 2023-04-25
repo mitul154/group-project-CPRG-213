@@ -21,6 +21,7 @@ class DoctorManager:
         qualification = input("Enter the doctor's qualification: ")
         room_number = input("Enter the doctor's room number: ")
         new_doctor = Doctor(doctor_id, name, specialization, working_time, qualification, room_number)
+        print(f"\nDoctor whose ID is {doctor_id} has been added")
         return new_doctor
 
     @staticmethod
@@ -43,9 +44,10 @@ class DoctorManager:
         for doctor_object in self.doctors:
             if doctor_object.get_doctor_id() == id:
                 flag = True
-                doctor_obj = doctor_object
+                doctor_obj = self.format_dr_info(doctor_object)
                 break
         if flag:
+            print(f"ID{'':3s}Name{'':16s}Speciality{'':10s}Timing{'':14s}Qualification{'':7s}Room Number\n")
             print(doctor_obj)
         else:
             print("Can't find the doctor….")
@@ -57,9 +59,10 @@ class DoctorManager:
         for doctor_object in self.doctors:
             if (doctor_object.get_doctor_name()[3:].strip().casefold() == name.casefold()) or ("dr."+doctor_object.get_doctor_name()[3:].strip().casefold() == name.casefold()):
                 flag = True
-                doctor_obj = doctor_object
+                doctor_obj = self.format_dr_info(doctor_object)
                 break
         if flag:
+            print(f"ID{'':3s}Name{'':16s}Speciality{'':10s}Timing{'':14s}Qualification{'':7s}Room Number\n")
             print(doctor_obj)
         else:
             print("Can’t find the doctor….")
@@ -87,6 +90,7 @@ class DoctorManager:
         if flag:
             with open("data/doctors.txt", "w") as f:
                 f.writelines(map(lambda x: x.__str__()+"\n", self.doctors))
+                print(f"Doctor whose ID is {doctor_id} has been edited")
         else:
             print("Cannot find the doctor …..")
 
@@ -94,17 +98,17 @@ class DoctorManager:
         self.doctors.clear()
         self.read_doctors_file(self.doctors)
         for i in self.doctors:
-            print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
+            print(self.format_dr_info(str(i))+"\n")
+            # print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
 
     def write_list_of_doctors_to_file(self, list_of_doctors):
         with open("data/doctors.txt", "a") as f:
             for _doctor in list_of_doctors:
-                doctor_format = self.format_dr_info(_doctor)
+                doctor_format = str(_doctor)
                 f.write(doctor_format)
 
     def add_dr_to_file(self):
         new_doctor = self.enter_doctor_info()
         self.write_list_of_doctors_to_file([f"\n{new_doctor}"])
-        print("New doctor has been added")
 
 

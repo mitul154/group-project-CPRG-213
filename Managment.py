@@ -30,7 +30,7 @@ class Display:
                         case "3":
                             self.doctor.search_doctor_by_name()
                         case "4":
-                            self.doctor.enter_doctor_info()
+                            self.doctor.add_dr_to_file()
                         case "5":
                             self.doctor.edit_doctor_info()
                         case "6":
@@ -43,7 +43,6 @@ class Display:
                     patient_menu = input("Patients Menu:\n1 - Display patients list\n2 - Search for patient by ID"
                                          "\n3 - Add patient\n4 - Edit patient info\n5 - Back to the Main Menu\n>>>")
                     if patient_menu == "1":
-                        print("ID\t\t\t\t\tName\t\t\t\tDisease\t\t\t\tGender\t\t\t\tAge\n")
                         self.patient.display_patients_list()
                         # for i in self.patient.patient_list:
                         #     print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_'))))
