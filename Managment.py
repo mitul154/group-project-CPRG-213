@@ -67,6 +67,6 @@ class Display:
 
 
 # Initiating objects to start the program
-initiator = Display()
+initiator = Display() 
 initiator.display_menu()
 

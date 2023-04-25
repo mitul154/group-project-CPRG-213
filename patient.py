@@ -1,5 +1,5 @@
-class Patient:
-    def __init__(self):
+class Patient: # This class is used to create a patient object
+    def __init__(self): # Creates the constructor for the Patient class
         self.pid = None
         self.name = None
         self.disease = None
