@@ -48,7 +48,7 @@ class DoctorManager:
         if flag:
             print(doctor_obj)
         else:
-            print("Can’t find the doctor….")
+            print("Can't find the doctor….")
 
     def search_doctor_by_name(self):
         doctor_obj = None
