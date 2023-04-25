@@ -1,18 +1,18 @@
-import patient
+import patient 
 
 
-class PatientManager:
-    def __init__(self):
+class PatientManager: # This class is used to manage the patients
+    def __init__(self): # Creates the constructor for the PatientManager class
         self.patient_list = []
         self.read_patients_file(self.patient_list)
 
     @staticmethod
-    def format_patient_info_for_file(patient_object):
+    def format_patient_info_for_file(patient_object): # This method is used to format the patient information for the file
         split = str(patient_object).split("_")
         return f"{split[0]:5s}{split[1]:20s}{split[2]:20s}{split[3]:20s}{split[4]}"
 
-    @staticmethod
-    def enter_patient_info():
+    @staticmethod 
+    def enter_patient_info(): # This method is used to ask the user to enter the patient's information
         pid = input("Enter the patient id: ")
         name = input("Enter the patient name: ")
         disease = input("Enter the patient's disease: ")
@@ -27,9 +27,9 @@ class PatientManager:
         print(f"\nPatient whose ID is {pid} has been added.")
         return new_patient
 
-    def read_patients_file(self, patient_list):
-        self.patient_list.clear()
-        with open("data/patients.txt", "r") as f:
+    def read_patients_file(self, patient_list): # This method is used to read the patients file
+        self.patient_list.clear() # Clears the patient list
+        with open("data/patients.txt", "r") as f: # Opens the patients file
             # iter_f = iter(f)
             # next(iter_f)
             for patient_data in f:

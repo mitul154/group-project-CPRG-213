@@ -1,17 +1,17 @@
 # Importing the classes from different files
 # os is used to terminate the program later
-import DoctorManager
-import patient_manager
+import DoctorManager 
+import patient_manager 
 import os
 
 
-class Display:
+class Display:  
     # Initiates the Doctor manager class and patient manager class
     def __init__(self):
         self.patient = patient_manager.PatientManager()
         self.doctor = DoctorManager.DoctorManager()
 
-    def display_menu(self):
+    def display_menu(self): # Displays the menu for the user to select from
         first_display_input = input("Welcome to Alberta Hospital (AH) Management system \n"
                                     "Select from the following options, or select 3 to stop: \n1 - 	Doctors\n"
                                     "2 - 	Patients\n3 -	Exit Program \n>>>")
