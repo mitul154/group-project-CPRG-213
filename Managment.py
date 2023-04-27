@@ -1,17 +1,17 @@
 # Importing the classes from different files
 # os is used to terminate the program later
-import DoctorManager
-import patient_manager
+import DoctorManager 
+import patient_manager 
 import os
 
 
-class Display:
+class Display:  
     # Initiates the Doctor manager class and patient manager class
     def __init__(self):
         self.patient = patient_manager.PatientManager()
         self.doctor = DoctorManager.DoctorManager()
 
-    def display_menu(self):
+    def display_menu(self): # Displays the menu for the user to select from
         first_display_input = input("Welcome to Alberta Hospital (AH) Management system \n"
                                     "Select from the following options, or select 3 to stop: \n1 - 	Doctors\n"
                                     "2 - 	Patients\n3 -	Exit Program \n>>>")
@@ -44,8 +44,7 @@ class Display:
                                          "\n3 - Add patient\n4 - Edit patient info\n5 - Back to the Main Menu\n>>>")
                     if patient_menu == "1":
                         self.patient.display_patients_list()
-                        # for i in self.patient.patient_list:
-                        #     print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_'))))
+
                     elif patient_menu == "2":
                         self.patient.search_patient_by_id()
                     elif patient_menu == "3":
@@ -59,7 +58,6 @@ class Display:
                         initiator.display_menu()
                 case "3":
                     print("Thanks for using the program. Bye!")
-                    # os.exit terminates the program when user is finished using it
                     os._exit(0)
                 case _:
                     print("You have entered a invalid response.\n")
@@ -67,6 +65,6 @@ class Display:
 
 
 # Initiating objects to start the program
-initiator = Display()
+initiator = Display() 
 initiator.display_menu()
 

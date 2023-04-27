@@ -1,11 +1,14 @@
-class Doctor:
-    def __init__(self, doctor_id = "", doctor_name = "", specialization = "", working_time = "", qualification = "", room_number = 0):
-        self.doctor_id = doctor_id
-        self.doctor_name = doctor_name
-        self.specialization = specialization
-        self.working_time = working_time
-        self.qualification = qualification
-        self.room_number = room_number
+class Doctor:  # Creates the Doctor class with the attributes of doctor_id, doctor_name, specialization,
+    # working_time, qualification, room_number
+    def __init__(self):  # Creates the constructor for the Doctor class
+        self.doctor_id = None
+        self.doctor_name = None
+        self.specialization = None
+        self.working_time = None
+        self.qualification = None
+        self.room_number = None
+
+    # Getter Methods
 
     def get_doctor_id(self):
         return self.doctor_id
@@ -24,6 +27,8 @@ class Doctor:
 
     def get_room_number(self):
         return self.room_number
+
+    # Setter Methods
 
     def set_doctor_id(self, new_id):
         self.doctor_id = new_id
@@ -45,8 +50,3 @@ class Doctor:
 
     def __str__(self):
         return f"{self.doctor_id}_{self.doctor_name}_{self.specialization}_{self.working_time}_{self.qualification}_{self.room_number}"
-
-
-Doctor1 = Doctor(12, "Bop", "CANCER", "5-12pm", "MD", 202)
-if __name__ == "__main__":
-    print(Doctor1)
