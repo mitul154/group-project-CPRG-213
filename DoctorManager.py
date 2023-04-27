@@ -22,6 +22,7 @@ class DoctorManager: #Creates the DoctorManager class
         room_number = input("Enter the doctor's room number: ")
         new_doctor = Doctor(doctor_id, name, specialization, working_time, qualification, room_number)
         print(f"\nDoctor whose ID is {doctor_id} has been added")
+        print(f"\nDoctor whose ID is {doctor_id} has been added")
         return new_doctor
 
     @staticmethod
@@ -97,9 +98,9 @@ class DoctorManager: #Creates the DoctorManager class
     def display_doctors_list(self): #Creates a method to display the doctors list
         self.doctors.clear() 
         self.read_doctors_file(self.doctors)
-        for i in self.doctors: #Loops through each doctor object in the doctors list
+        for i in self.doctors:#Loops through each doctor object in the doctors list
             print(self.format_dr_info(str(i))+"\n")
-
+            # print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
 
     def write_list_of_doctors_to_file(self, list_of_doctors): #Creates a method to write the list of doctors to the doctors.txt file
         with open("data/doctors.txt", "a") as f: #Opens the doctors.txt file in append mode
