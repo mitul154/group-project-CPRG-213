@@ -1,11 +1,11 @@
-class Patient:
-    def __init__(self):
+class Patient: # This class is used to create a patient object
+    def __init__(self): # Creates the constructor for the Patient class
         self.pid = None
         self.name = None
         self.disease = None
         self.gender = None
         self.age = 0
-
+    #Getter methods
     def get_pid(self):
         return self.pid
 
@@ -20,7 +20,7 @@ class Patient:
 
     def get_age(self):
         return self.age
-
+    #Setter methods
     def set_pid(self, pid):
         self.pid = pid
 
