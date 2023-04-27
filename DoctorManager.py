@@ -29,8 +29,8 @@ class DoctorManager: #Creates the DoctorManager class
         with open("data/doctors.txt", "r") as f: #Opens the doctors.txt file in read mode
             for doctor_data in f: #Loops through each line in the doctors.txt file
                 new_doctor_object = Doctor()
-                new_doctor_object.set_doctor_id(doctor_data.rstrip().split("_")[0])
-                new_doctor_object.set_new_name(doctor_data.rstrip().split("_")[1])
+                new_doctor_object.set_doctor_id(doctor_data.rstrip().split("_")[0]) #Sets the doctors ID, formatting it with rstrip() to remove any trailing whitespace and split() to split the string into a list
+                new_doctor_object.set_new_name(doctor_data.rstrip().split("_")[1]) 
                 new_doctor_object.set_new_specialization(doctor_data.rstrip().split("_")[2])
                 new_doctor_object.set_new_working_time(doctor_data.rstrip().split("_")[3])
                 new_doctor_object.set_new_qualification(doctor_data.rstrip().split("_")[4])

@@ -9,7 +9,7 @@ class PatientManager: # This class is used to manage the patients
     @staticmethod
     def format_patient_info_for_file(patient_object): # This method is used to format the patient information for the file
         split = str(patient_object).split("_")
-        return f"{split[0]:5s}{split[1]:20s}{split[2]:20s}{split[3]:20s}{split[4]}"
+        return f"{split[0]:5s}{split[1]:20s}{split[2]:20s}{split[3]:20s}{split[4]}" # Returns the formatted patient information using the split function 
 
     @staticmethod 
     def enter_patient_info(): # This method is used to ask the user to enter the patient's information
@@ -33,8 +33,8 @@ class PatientManager: # This class is used to manage the patients
 
             for patient_data in f: # Loops through the patients file
                 new_patient_object = patient.Patient()
-                new_patient_object.set_pid(patient_data.rstrip().split("_")[0])
-                new_patient_object.set_name(patient_data.rstrip().split("_")[1])
+                new_patient_object.set_pid(patient_data.rstrip().split("_")[0]) 
+                new_patient_object.set_name(patient_data.rstrip().split("_")[1]) 
                 new_patient_object.set_disease(patient_data.rstrip().split("_")[2])
                 new_patient_object.set_gender(patient_data.rstrip().split("_")[3])
                 new_patient_object.set_age(patient_data.rstrip().split("_")[4])

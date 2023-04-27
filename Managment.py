@@ -59,7 +59,7 @@ class Display:
                 case "3":
                     print("Thanks for using the program. Bye!")
 
-                    os._exit(0)
+                    os._exit(0) # Terminates the program
                 case _:
                     print("You have entered a invalid response.\n")
                     initiator.display_menu()
