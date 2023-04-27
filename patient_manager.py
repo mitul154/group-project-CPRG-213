@@ -30,8 +30,7 @@ class PatientManager: # This class is used to manage the patients
     def read_patients_file(self, patient_list): # This method is used to read the patients file
         self.patient_list.clear() # Clears the patient list
         with open("data/patients.txt", "r") as f: # Opens the patients file
-            # iter_f = iter(f)
-            # next(iter_f)
+
             for patient_data in f: # Loops through the patients file
                 new_patient_object = patient.Patient()
                 new_patient_object.set_pid(patient_data.rstrip().split("_")[0])
@@ -87,7 +86,6 @@ class PatientManager: # This class is used to manage the patients
         self.read_patients_file(self.patient_list) # Calls the read_patients_file method
         for i in self.patient_list: # Loops through the patient list
             print(self.format_patient_info_for_file(str(i))+"\n")
-            # print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
 
     def write_list_of_patients_to_file(self, list_of_patients): # This method is used to write the list of patients to the patients file
         with open("data/patients.txt", "a") as f: # Opens the patients file

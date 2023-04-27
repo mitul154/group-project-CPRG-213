@@ -6,7 +6,7 @@ class Doctor:  #Creates the Doctor class with the attributes of doctor_id, docto
         self.working_time = working_time
         self.qualification = qualification
         self.room_number = room_number
-
+    #Getter Methods
     def get_doctor_id(self):
         return self.doctor_id
 
@@ -24,7 +24,7 @@ class Doctor:  #Creates the Doctor class with the attributes of doctor_id, docto
 
     def get_room_number(self):
         return self.room_number
-
+    #Setter Methods
     def set_doctor_id(self, new_id):
         self.doctor_id = new_id
 

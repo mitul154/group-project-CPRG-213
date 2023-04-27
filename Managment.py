@@ -44,8 +44,7 @@ class Display:
                                          "\n3 - Add patient\n4 - Edit patient info\n5 - Back to the Main Menu\n>>>")
                     if patient_menu == "1":
                         self.patient.display_patients_list()
-                        # for i in self.patient.patient_list:
-                        #     print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_'))))
+
                     elif patient_menu == "2":
                         self.patient.search_patient_by_id()
                     elif patient_menu == "3":
@@ -59,7 +58,7 @@ class Display:
                         initiator.display_menu()
                 case "3":
                     print("Thanks for using the program. Bye!")
-                    # os.exit terminates the program when user is finished using it
+
                     os._exit(0)
                 case _:
                     print("You have entered a invalid response.\n")

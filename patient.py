@@ -5,7 +5,7 @@ class Patient: # This class is used to create a patient object
         self.disease = None
         self.gender = None
         self.age = 0
-
+    #Getter methods
     def get_pid(self):
         return self.pid
 
@@ -20,7 +20,7 @@ class Patient: # This class is used to create a patient object
 
     def get_age(self):
         return self.age
-
+    #Setter methods
     def set_pid(self, pid):
         self.pid = pid
 
