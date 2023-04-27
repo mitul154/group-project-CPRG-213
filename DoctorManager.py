@@ -101,7 +101,8 @@ class DoctorManager: #Creates the DoctorManager class
             print(self.format_dr_info(str(i))+"\n")
             # print(f"".join(map(lambda x: f"{x:20s}", str(i).split('_')))+"\n")
 
-    def write_list_of_doctors_to_file(self, list_of_doctors): #Creates a method to write the list of doctors to the doctors.txt file
+    @staticmethod
+    def write_list_of_doctors_to_file(list_of_doctors): #Creates a method to write the list of doctors to the doctors.txt file
         with open("data/doctors.txt", "a") as f: #Opens the doctors.txt file in append mode
             for _doctor in list_of_doctors: #Loops through each doctor object in the list of doctors
                 doctor_format = str(_doctor) #Formats the doctor's information

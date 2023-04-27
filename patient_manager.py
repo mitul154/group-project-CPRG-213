@@ -87,7 +87,8 @@ class PatientManager: # This class is used to manage the patients
         for i in self.patient_list: # Loops through the patient list
             print(self.format_patient_info_for_file(str(i))+"\n")
 
-    def write_list_of_patients_to_file(self, list_of_patients): # This method is used to write the list of patients to the patients file
+    @staticmethod
+    def write_list_of_patients_to_file(list_of_patients): # This method is used to write the list of patients to the patients file
         with open("data/patients.txt", "a") as f: # Opens the patients file
             for _patient in list_of_patients: # Loops through the list of patients
                 patient_format = str(_patient)
